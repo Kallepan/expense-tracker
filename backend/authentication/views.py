@@ -1,8 +1,11 @@
 from rest_framework import generics
 from rest_framework.response import Response
 from rest_framework import status
-from .serializers import RegisterSerializer, UserSerializer
+from rest_framework import mixins
+from rest_framework import viewsets
 
+from .serializers import RegisterSerializer, UserSerializer
+from .models import User
 # Register 
 class RegisterView(generics.GenericAPIView):
     serializer_class = RegisterSerializer
@@ -26,3 +29,12 @@ class RegisterView(generics.GenericAPIView):
         return Response({
             "message": "Nutzer erstellt. Der Nutzer kann sich nun einloggen."
         })
+
+class UserViewSet(
+    mixins.RetrieveModelMixin,
+    mixins.CreateModelMixin,
+    mixins.UpdateModelMixin,
+    viewsets.GenericViewSet):
+
+    queryset = User.objects.all()
+    serializer_class = UserSerializer

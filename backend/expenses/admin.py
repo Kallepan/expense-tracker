@@ -1,3 +1,6 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import Payee, Expense
+
+admin.site.register(Payee)
+admin.site.register(Expense)
