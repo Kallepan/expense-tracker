@@ -38,3 +38,5 @@ class UserViewSet(
 
     queryset = User.objects.all()
     serializer_class = UserSerializer
+
+    

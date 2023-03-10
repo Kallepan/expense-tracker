@@ -28,6 +28,7 @@ class UserSerializer(serializers.ModelSerializer):
         fields = (
             'id',
             'username',
+            'email',
             'iban',
             'first_name',
             'last_name',
