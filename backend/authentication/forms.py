@@ -6,8 +6,7 @@ User = get_user_model()
 
 class RegisterForm(forms.ModelForm):
     """
-    The default 
-
+    The default
     """
 
     password = forms.CharField(widget=forms.PasswordInput)
@@ -89,7 +88,7 @@ class UserAdminChangeForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ['email', 'username', 'password', 'is_active', 'is_superuser']
+        fields = ['email', 'username', 'password', 'is_active', 'is_superuser', 'is_staff']
 
     def clean_password(self):
         # Regardless of what the user provides, return the initial value.
